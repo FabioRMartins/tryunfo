@@ -11,7 +11,7 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      //    hasTrunfo,
+      // hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -19,98 +19,90 @@ class Form extends React.Component {
 
     return (
       <form>
-        <label htmlFor="Form">
-          Nome:
-          <input
-            data-testid="name-input"
-            type="text"
-            name="cardName"
-            value={ cardName }
-            onChange={ onInputChange }
-          />
-        </label>
+        Nome:
+        <input
+          data-testid="name-input"
+          type="text"
+          label="Form"
+          name="cardName"
+          value={ cardName }
+          onChange={ onInputChange }
+        />
         <br />
-        <label htmlFor="description-input">
-          Descrição:
-          <textarea
-            data-testid="description-input"
-            name="cardDescription"
-            value={ cardDescription }
-            onChange={ onInputChange }
-          />
-        </label>
+        Descrição:
+        <textarea
+          data-testid="description-input"
+          label="description"
+          name="cardDescription"
+          value={ cardDescription }
+          onChange={ onInputChange }
+        />
         <br />
-        <label htmlFor="attr1-input">
-          Primeiro atributo:
-          <input
-            data-testid="attr1-input"
-            type="number"
-            min="0"
-            name="attr1-input"
-            value={ cardAttr1 }
-            onChange={ onInputChange }
-          />
-        </label>
+        Primeiro atributo:
+        <input
+          data-testid="attr1-input"
+          label="attr1"
+          type="number"
+          min="0"
+          name="cardAttr1"
+          value={ cardAttr1 }
+          onChange={ onInputChange }
+        />
         <br />
-        <label htmlFor="attr2-input">
-          Segundo atributo:
-          <input
-            data-testid="attr2-input"
-            type="number"
-            min="0"
-            name="attr2-input"
-            value={ cardAttr2 }
-            onChange={ onInputChange }
-          />
-        </label>
+        Segundo atributo:
+        <input
+          data-testid="attr2-input"
+          label="attr2"
+          type="number"
+          min="0"
+          name="cardAttr2"
+          value={ cardAttr2 }
+          onChange={ onInputChange }
+        />
         <br />
-        <label htmlFor="attr3-input">
-          Terceiro atributo:
-          <input
-            data-testid="attr3-input"
-            type="number"
-            min="0"
-            name="attr3-input"
-            value={ cardAttr3 }
-            onChange={ onInputChange }
-          />
-        </label>
+        Terceiro atributo:
+        <input
+          data-testid="attr3-input"
+          label="attr3"
+          type="number"
+          min="0"
+          name="cardAttr3"
+          value={ cardAttr3 }
+          onChange={ onInputChange }
+        />
         <br />
-        <label htmlFor="image-input">
-          Imagem:
-          <input
-            data-testid="image-input"
-            name="image-input"
-            type="text"
-            value={ cardImage }
-            onChange={ onInputChange }
-          />
-        </label>
+        Imagem:
+        <input
+          data-testid="image-input"
+          label="image"
+          name="cardImage"
+          type="text"
+          value={ cardImage }
+          onChange={ onInputChange }
+        />
         <br />
-        <label htmlFor="rare-input">
-          Tipo:
-          <select
-            data-testid="rare-input"
-            name="rare-input"
-            value={ cardRare }
-            onChange={ onInputChange }
-          >
-            <option>normal</option>
-            <option>raro</option>
-            <option>muito raro</option>
-          </select>
-        </label>
+        Tipo:
+        <select
+          data-testid="rare-input"
+          label="rare"
+          name="cardRare"
+          value={ cardRare }
+          onChange={ onInputChange }
+        >
+          <option>normal</option>
+          <option>raro</option>
+          <option>muito raro</option>
+        </select>
         <br />
-        <label htmlFor="trunfo-input">
-          Trunfo:
-          <input
-            data-testid="trunfo-input"
-            name="trunfo-input"
-            type="checkbox"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-          />
-        </label>
+        Trunfo:
+        <input
+          data-testid="trunfo-input"
+          label="trunfo"
+          name="cardTrunfo"
+          type="checkbox"
+          checked={ cardTrunfo }
+          onChange={ onInputChange }
+        />
         <br />
         <button
           data-testid="save-button"
