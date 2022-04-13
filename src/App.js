@@ -80,6 +80,20 @@ class App extends React.Component {
     }));
   }
 
+  removeItem = (item) => {
+    const { cardList } = this.state;
+    const newCardList = cardList.filter((element) => element.cardName !== item.cardName);
+    const trunfo = cardList.find((element) => element.cardTrunfo === true);
+    let stateTrunfo = false;
+    if (trunfo.cardName === item.name) {
+      stateTrunfo = true;
+    }
+    this.setState({
+      hasTrunfo: stateTrunfo,
+      cardList: newCardList,
+    });
+  }
+
   render() {
     const { cardName,
       cardDescription,
@@ -122,7 +136,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
         />
-        <h2>Lista de cartas:</h2>
+        <h2>Lista de cartas</h2>
         { cardList.map((item) => (
           <div key={ item.cardName }>
             <Card
@@ -135,6 +149,14 @@ class App extends React.Component {
               cardRare={ item.cardRare }
               cardTrunfo={ item.cardTrunfo }
             />
+            <button
+              data-testid="delete-button"
+              name={ item.cardName }
+              type="button"
+              onClick={ () => this.removeItem(item) }
+            >
+              Excluir
+            </button>
           </div>
         ))}
       </div>
