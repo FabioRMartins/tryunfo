@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -23,7 +24,35 @@ class App extends React.Component {
 
   onInputChange = ({ target }) => {
     const { value, name, type, checked } = target;
-    this.setState({ [name]: type === 'checkbox' ? checked : value });
+    this.setState({ [name]: type === 'checkbox' ? checked : value }, () => {
+      const {
+        cardName,
+        cardDescription,
+        cardAttr1,
+        cardAttr2,
+        cardAttr3,
+        cardImage,
+        cardRare,
+      } = this.state;
+      const attrMaximo = 90;
+      const attrSoma = 210;
+      const attrMinimo = 0;
+      const soma = parseInt(cardAttr1, 10) + parseInt(cardAttr2, 10)
+      + parseInt(cardAttr3, 10);
+      if (cardName !== '' && cardDescription !== '' && cardImage !== '' && cardRare !== ''
+      && (parseInt(cardAttr1, 10) <= attrMaximo && parseInt(cardAttr1, 10) >= attrMinimo)
+      && (parseInt(cardAttr2, 10) <= attrMaximo && parseInt(cardAttr2, 10) >= attrMinimo)
+      && (parseInt(cardAttr3, 10) <= attrMaximo && parseInt(cardAttr3, 10) >= attrMinimo)
+      && soma <= attrSoma) {
+        this.setState({
+          isSaveButtonDisabled: false,
+        });
+      } else {
+        this.setState({
+          isSaveButtonDisabled: true,
+        });
+      }
+    });
   }
 
   onSaveButtonClick() {
