@@ -108,9 +108,10 @@ class App extends React.Component {
       cardList } = this.state;
 
     return (
-      <div>
+      <div className="main-container">
         <h1>Tryunfo</h1>
         <Form
+          className="form-container"
           cardName={ cardName }
           cardDescription={ cardDescription }
           cardAttr1={ cardAttr1 }
@@ -138,7 +139,7 @@ class App extends React.Component {
         />
         <h2>Lista de cartas</h2>
         { cardList.map((item) => (
-          <div key={ item.cardName }>
+          <div key={ item.cardName } className="list-container">
             <Card
               cardName={ item.cardName }
               cardDescription={ item.cardDescription }
@@ -150,6 +151,7 @@ class App extends React.Component {
               cardTrunfo={ item.cardTrunfo }
             />
             <button
+              className="button"
               data-testid="delete-button"
               name={ item.cardName }
               type="button"
